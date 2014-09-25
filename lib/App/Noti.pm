@@ -18,11 +18,22 @@ App::Noti - Simple filesystem notification watcher
 
 =head1 SYNOPSIS
 
-    use App::Noti;
+    $ noti --hook="prove -j9 | tee /tmp/noti; \
+        tail -n 3 /tmp/noti | xargs -0 notify-send"
+
+    Options:
+
+    noti [--hook=<command>] [<dirs>...]
+    noti -h | --help
+
+    --hook=<command>   Command to run when files change
+    -h --help          Show this screen.
+    --version          Show version.
 
 =head1 DESCRIPTION
 
-See C<noti> command instead.
+Watches a specified directory (C<.> by default) and runs a specified C<hook>
+command. Can be used for continuous testing for example.
 
 =head1 LICENSE
 

@@ -54,6 +54,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/vti/app-noti/issues"
+      },
+      "homepage" : "https://github.com/vti/app-noti",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/vti/app-noti.git",
+         "web" : "https://github.com/vti/app-noti"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:VTI"
 }
