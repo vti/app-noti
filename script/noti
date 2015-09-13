@@ -32,6 +32,10 @@ while (1) {
             foreach my $event (@_) {
                 next unless is_valid($event->{path});
 
+                next
+                  if $opts->{'--match'}
+                  && $event->{path} !~ /$opts->{'--match'}/;
+
                 next if grep { $_->{path} eq $event->{path} } @events;
                 push @events, $event;
             }
@@ -81,10 +85,11 @@ __END__
 
 =head1 SYNOPSIS
 
-  noti [-R] [--hook=<command>] [<dirs>...]
+  noti [-R] [--match=<regexp>] [--hook=<command>] [<dirs>...]
   noti -h | --help
 
   --hook=<command>   Command to run when files change
   -R                 Watch directories recursively
+  --match            Only notify files matching regexp
   -h --help          Show this screen
   --version          Show version
