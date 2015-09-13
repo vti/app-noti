@@ -8,7 +8,8 @@ use Filesys::Notify::Simple;
 
 my $opts = docopt();
 
-my (@dirs) = @{$opts->{'<dirs>'}} || ('.');
+my (@dirs) = @{$opts->{'<dirs>'}};
+push @dirs, '.' unless @dirs;
 
 my $watcher = build_watcher(@dirs);
 while (1) {
